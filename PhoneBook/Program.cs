@@ -7,31 +7,25 @@ namespace PhoneBook
     {
         static void Main(string[] args)
         {
-            //vytvoření slovníku
-            Dictionary<string, string> seznamTelCisel = new Dictionary<string, string>();
-            Console.WriteLine("Kolik chcete zadat čísel?");
+            List<int> seznamZnamek = new List<int>();
+            seznamZnamek.Add(5);
+            seznamZnamek.Add(4);
+            seznamZnamek.Add(3);
+            seznamZnamek.Add(2);
+            seznamZnamek.Add(1);
+            seznamZnamek.Add(5);
+            seznamZnamek.Add(4);
 
-            //do proměnné pocetCisel načteme kolik chce uživatel zadat čísel
-            int pocetCisel = Convert.ToInt32(Console.ReadLine());
+            double aritmetickyPrumer = 0;
+            double soucetVsechCisel = 0;
 
-            //cyklus běží do doby, než se narazí na strop daný zadaným počtem čísel
-            for(int i = 0; i < pocetCisel; i++)
+            foreach(var hodnotaZeSeznamu in seznamZnamek)
             {
-                string jmenoTelCisla = "";;
-                Console.WriteLine("Zadej jméno uživatele: ");
-                jmenoTelCisla = Console.ReadLine();
-
-                Console.WriteLine("Zadej číslo: ");
-                string telCislo = Console.ReadLine();
-
-                seznamTelCisel.Add(jmenoTelCisla, telCislo);
-
-                Console.Clear();
+                soucetVsechCisel += hodnotaZeSeznamu;
             }
-            foreach(var radekZeSeznamu in seznamTelCisel)
-            {
-                Console.WriteLine($"Jméno {radekZeSeznamu.Key} tel. číslo: {radekZeSeznamu.Value}");
-            }
+            aritmetickyPrumer = soucetVsechCisel / seznamZnamek.Count;
+            Console.WriteLine(aritmetickyPrumer);
+            //random
         }
     }
 }
